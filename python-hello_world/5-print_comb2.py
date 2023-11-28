@@ -3,6 +3,6 @@ for i in range(100):
         # Print a leading zero for single-digit numbers
         print(f"{i:02d}", end=", ")
     else:
-        print(i)
+        print(f"{i}")
         
    
