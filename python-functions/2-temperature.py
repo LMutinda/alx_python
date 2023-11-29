@@ -1,15 +1,18 @@
 def convert_to_celsius(fahrenheit):
     temp=(fahrenheit-32)*(5/9)
-    degree=str(temp)
-    m= degree.split(".")
-    n=m[1]
-    a= int(n[2])
-    if a==0:
-        celsius = round(temp,2)
-    else:
-        celsius=degree
-    
-    return celsius
+    try:
+        degree=str(temp)
+        m= degree.split(".")
+        n=m[1]
+        a= int(n[2])
+        if a==0:
+            celsius = round(temp,2)
+        else:
+            celsius=degree
+        
+        return celsius
+    except:
+        return celsius
 
 def switch(a):
     if a == 100 :
