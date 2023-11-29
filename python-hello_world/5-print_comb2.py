@@ -1,8 +1,11 @@
-for i in range(100):
+"""for i in range(100):
     if i < 99:
-        # Print a leading zero for single-digit numbers
+        #Print a leading zero for single-digit numbers
         print("{:02d}".format(i), end=", ")
     else:
-        print("{}".format(i))
+        print("{}".format(i)) """
+print(', '.join(["{:02d}".format(i) for i in range(100) ]))
+
+
         
    
