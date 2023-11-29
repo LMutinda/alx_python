@@ -1,5 +1,5 @@
 def pow(a, b):
-    c= a^b
+    c= a**b
     return c
 def switch(m,n):
     if m==2 and n==2:
