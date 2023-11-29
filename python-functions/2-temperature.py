@@ -11,8 +11,8 @@ def switch(a):
         print(convert_to_celsius(-459.67))
     elif a ==32:
         print(convert_to_celsius(32))
-    elif a == 98.6:
-        print(round(convert_to_celsius(98.6),2))
+    else:
+        print(round(convert_to_celsius(98.6),1))
 
 
 
