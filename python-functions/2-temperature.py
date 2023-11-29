@@ -1,5 +1,5 @@
 def convert_to_celsius(fahrenheit):
-    celsius=(fahrenheit-32)/1.8
+    celsius=(fahrenheit-32)*0.56
     return celsius
 
 def switch(a):
