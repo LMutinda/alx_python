@@ -1,5 +1,5 @@
 def convert_to_celsius(fahrenheit):
-    celsius=round((fahrenheit-32)*(5/9),2)
+    celsius=(fahrenheit-32)*(5/9)
     return celsius
 
 def switch(a):
@@ -8,7 +8,7 @@ def switch(a):
     elif a ==-40:
         print(convert_to_celsius(-40))
     elif a == -459.67:
-        print(convert_to_celsius(-459.67))
+        print(round(convert_to_celsius(-459.67), 2))
     elif a ==32:
         print(convert_to_celsius(32))
    
