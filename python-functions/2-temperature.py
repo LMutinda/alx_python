@@ -25,7 +25,7 @@ def switch(a):
     elif a ==32:
         print(convert_to_celsius(32))
    
-print(convert_to_celsius(-40))
+
 
 
 
