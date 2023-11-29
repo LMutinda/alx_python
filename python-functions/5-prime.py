@@ -6,6 +6,6 @@ def is_prime(number):
             return False
     return True
 
-val= input("Enter the number")
+val= input()
 print(is_prime(val))
     
