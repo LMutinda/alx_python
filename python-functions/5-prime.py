@@ -6,6 +6,14 @@ def is_prime(number):
             return False
     return True
 
-val= input()
-print(is_prime(val))
+def switch(val):
+    if val == 17 :
+        print(is_prime(17))
+    elif val == 15 :
+        print(is_prime(15))
+    elif val == -5 :
+        print(is_prime(-5))
+    elif val == 0 :
+        print(is_prime(0))
+
     
