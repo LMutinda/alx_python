@@ -6,10 +6,10 @@ def multiple_returns(sentence):
     else:
         first = None
 
-    tups = (length, first)
     print("Length: {:d} - First character: {}".format(length, first))
+    return (length, first)
 
    
-  
+
     
     
