@@ -1,5 +1,9 @@
 if __name__ == "__main__":
-    argv=[]
+    import sys
+
+    # Get the command-line arguments
+    argv = sys.argv[1:]
+    
     num= len(argv)
     count = 0
     if num == 1:
