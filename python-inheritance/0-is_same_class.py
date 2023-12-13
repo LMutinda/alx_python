@@ -1,6 +1,10 @@
+"""
+This is a module to determine if an object is an instance of a class
+"""
+
 def is_same_class(obj, a_class):
     """
-    method to determine whether an object is an instance of a class
+    Method to determine whether an object is an instance of a class
 
     Args:
         obj: instance
