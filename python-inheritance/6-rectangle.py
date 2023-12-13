@@ -24,13 +24,25 @@ class BaseGeometry(meta_class):
             raise ValueError ("{} must be greater than 0".format(name))
         
 
-class Rectangle(BaseGeometry):
+class Rectangle ( BaseGeometry ):
     """This is a rectangle class that inherits from the BaseGeometry class"""
     def __init__(self, width, height):
         self.__width = width 
         self.__height = height 
-        super().integer_validator(width,height)
+        
+    def integer_validator(self, width, height):
+        self.__width = width 
+        self.__height = height 
 
+        if type(width) != int:
+            raise TypeError ("width must be an integer")
+        if width <= 0:
+            raise ValueError ("width must be greater than 0")
+        if type(height) != int:
+            raise TypeError ("width must be an integer")
+        if height <= 0:
+            raise ValueError ("width must be greater than 0")
+        
        
     
 
