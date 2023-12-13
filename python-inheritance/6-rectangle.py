@@ -43,7 +43,7 @@ class Rectangle (BaseGeometry):
         self.integer_validator("height", height)
        
 
-print(issubclass(Rectangle, BaseGeometry))
+
 
 
 
