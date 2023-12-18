@@ -126,4 +126,12 @@ class Rectangle(Base):
         This method calculates the area of the rectangle
         """
         return self.__width* self.__height  
+    
+    def display(self):
+        """This method displays the rectangle shape
+        """
+        for height in range(self.__height):
+                for width in range(self.__width):
+                    print('#', end='')
+                print()
 
