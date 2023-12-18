@@ -130,10 +130,16 @@ class Rectangle(Base):
     def display(self):
         """This method displays the rectangle shape
         """
-        for height in range(self.__height):
-                for width in range(self.__width):
-                    print('#', end='')
-                print()
+        #for height in range(self.__height):
+                #for width in range(self.__width):
+                    #print('#', end='')
+                #print()
+
+        for _ in range(self.y):
+            print()
+
+        for _ in range(self.height):
+            print(" " * self.x + "#" * self.width)
     def __str__(self):
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
    
