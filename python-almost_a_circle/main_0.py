@@ -1,26 +1,53 @@
 #!/usr/bin/python3
 """ Check """
-import inspect
+from models.rectangle import Rectangle
 
-rectangle_import = __import__('models.rectangle').rectangle
-
-if rectangle_import is None:
-    print("Can't import models.rectangle")
+try:
+    Rectangle("12", 13)
+    print("TypeError exception not raised")
+    exit(1)
+except TypeError as e:
+    if str(e) != "width must be an integer":
+        print("Wrong exception message: {}".format(e))
+        exit(1)
+except Exception as e:
+    print("Wrong exception: [{}] {}".format(type(e), e))
     exit(1)
 
-rectangle_class = rectangle_import.__dict__.get('Rectangle')
-if rectangle_class is None:
-    print("Can't find class Rectangle in models.rectangle")
+try:
+    Rectangle([13], 13)
+    print("TypeError exception not raised")
+    exit(1)
+except TypeError as e:
+    if str(e) != "width must be an integer":
+        print("Wrong exception message: {}".format(e))
+        exit(1)
+except Exception as e:
+    print("Wrong exception: [{}] {}".format(type(e), e))
     exit(1)
 
-if not inspect.isclass(rectangle_class):
-    print("Rectangle is not a class")
+try:
+    Rectangle(13.12, 13)
+    print("TypeError exception not raised")
+    exit(1)
+except TypeError as e:
+    if str(e) != "width must be an integer":
+        print("Wrong exception message: {}".format(e))
+        exit(1)
+except Exception as e:
+    print("Wrong exception: [{}] {}".format(type(e), e))
     exit(1)
 
-from models.base import Base 
-
-if not issubclass(rectangle_class, Base):
-    print("Rectangle is not a subclass of Base")
+try:
+    Rectangle({ 'id': 12 }, 13)
+    print("TypeError exception not raised")
+    exit(1)
+except TypeError as e:
+    if str(e) != "width must be an integer":
+        print("Wrong exception message: {}".format(e))
+        exit(1)
+except Exception as e:
+    print("Wrong exception: [{}] {}".format(type(e), e))
     exit(1)
 
 print("OK", end="")
