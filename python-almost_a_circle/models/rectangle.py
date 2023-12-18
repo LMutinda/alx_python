@@ -119,5 +119,8 @@ class Rectangle(Base):
     def validate_non_negative(self, attribute_name, value):
         """Validate if the value is greater than or equal to 0"""
         if value < 0:
-            raise ValueError(f"{attribute_name} must be >= 0")   
+            raise ValueError(f"{attribute_name} must be >= 0") 
+
+    def area(self):
+        return self.__width* self.__height  
 
