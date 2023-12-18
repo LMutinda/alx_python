@@ -24,45 +24,19 @@ class Rectangle(Base):
 
         """
         super().__init__(id)
-        #self.__width = width
-        #self.__height = height
-        #self.__x = x
-        #self.__y = y
-        if self.__width is not int:
-            raise TypeError("width must be an integer")
-        else:
-            if self.__width<= 0:
-                raise ValueError("width must be > 0")
-            else:
-                self.__width = width
-
-        if self.__height is not int:
-            raise TypeError("height must be an integer")
-            
-        else: 
-            if self.__height<= 0:
-                raise ValueError("height must be > 0")
-            else:
-                self.__height = height
-
-        if self.__x is not int:
-            raise TypeError("x must be an integer")
-            
-        else: 
-            if self.__x < 0:
-                raise ValueError("x must be >= 0")
-            else:
-                self.__x =x
-
-        if self.__y is not int:
-            raise TypeError("y must be an integer")
-            
-        else: 
-            if self.__y < 0:
-                raise ValueError("y must be >= 0")
-            else:
-                self.__y = y
-       
+        self.validate_integer("width", width)
+        self.validate_positive("width", width)
+        self.__width = width
+        self.validate_integer("height", height)
+        self.validate_positive("height", height)
+        self.__height = height
+        self.validate_integer("x", x)
+        self.validate_non_negative("x", x)
+        self.__x = x
+        self.validate_integer("y", y)
+        self.validate_non_negative("y", y)
+        self.__y = y
+        
 
     @property
     def width(self):
@@ -75,6 +49,8 @@ class Rectangle(Base):
         """
         Setter for width value
         """
+        self.validate_integer("width", value)
+        self.validate_positive("width", value)
         self.__width = value
         
         
@@ -90,9 +66,10 @@ class Rectangle(Base):
     @height.setter
     def height(self,value):
         """
-        Setter fo rthe height value
+        Setter fo the height value
         """
-        
+        self.validate_integer("height", value)
+        self.validate_positive("height", value)
         self.__height =value
             
        
@@ -109,12 +86,10 @@ class Rectangle(Base):
         """
         Setter for x value
         """
-        
+        self.validate_integer("x", value)
+        self.validate_non_negative("x", value)
         self.__x =value
             
-       
-    
-
     @property
     def y(self):
         """
@@ -127,8 +102,22 @@ class Rectangle(Base):
         """
         Setter for y value
         """
-        
+        self.validate_integer("y", value)
+        self.validate_non_negative("y", value)
         self.__y =value
             
-       
+    def validate_integer(self, attribute_name, value):
+        """Validate if the value is an integer"""
+        if not isinstance(value, int):
+            raise TypeError(f"{attribute_name} must be an integer")
+
+    def validate_positive(self, attribute_name, value):
+        """Validate if the value is greater than 0"""
+        if value <= 0:
+            raise ValueError(f"{attribute_name} must be > 0")
+
+    def validate_non_negative(self, attribute_name, value):
+        """Validate if the value is greater than or equal to 0"""
+        if value < 0:
+            raise ValueError(f"{attribute_name} must be >= 0")   
 
