@@ -1,8 +1,9 @@
 """
 This module contains a rectangle class
 """
-Base = __import__('base').Base
+base = __import__('models.base').base
 
+Base = base.__dict__.get('Base')
 
 
 
