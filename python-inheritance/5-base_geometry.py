@@ -11,6 +11,12 @@ class meta_class:
 class BaseGeometry(meta_class):
     
     """This is a geometry class"""
+    def __dir__(cls):
+        """
+        Method to remove the __init_subclass__
+        """
+        return [attribute for  attribute in super().__dir__() if attribute != "__init_subclass__"]
+    
     def area(self):
         raise Exception ("area() is not implemented")
     
@@ -27,5 +33,7 @@ class BaseGeometry(meta_class):
                 self.value = value
         else:
             raise TypeError("{} must be an integer".format(name))
+        
+    
 
 
