@@ -1,17 +1,9 @@
 """
 This module contains a rectangle class
 """
-class Base:
-    """This is the meta class"""
-    __nb_objects = 0
-    def __init__(self, id=None):
-        if id is not None:
-            self.id = id
-        else:
-            Base.__nb_objects += 1
-            self.id = Base.__nb_objects
+Base = __import__('base').Base
 
-#Base = __import__('base').Base
+
 
 
 class Rectangle(Base):
@@ -122,26 +114,4 @@ class Rectangle(Base):
         else:
             raise TypeError("y must be an integer")
         
-if __name__ == "__main__":
 
-    try:
-        Rectangle(10, "2")
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(10, 2)
-        r.width = -10
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        r = Rectangle(10, 2)
-        r.x = {}
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
-
-    try:
-        Rectangle(10, 2, 3, -1)
-    except Exception as e:
-        print("[{}] {}".format(e.__class__.__name__, e))
