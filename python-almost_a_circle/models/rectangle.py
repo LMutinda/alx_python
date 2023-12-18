@@ -122,5 +122,8 @@ class Rectangle(Base):
             raise ValueError(f"{attribute_name} must be >= 0") 
 
     def area(self):
+        """
+        This method calculates the area of the rectangle
+        """
         return self.__width* self.__height  
 
