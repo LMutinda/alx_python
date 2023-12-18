@@ -7,8 +7,7 @@ BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 class Rectangle (BaseGeometry):
     """This is a rectangle class that inherits from the BaseGeometry class"""
-    def __dir__(cls):
-        return [attribute for  attribute in super().__dir__() if attribute != "__init_subclass__"]
+    
     
     def __init__(self, width, height):
         #self.integer_validator("width", width)
@@ -22,6 +21,10 @@ class Rectangle (BaseGeometry):
         return self.__width*self.__height
     def __str__(self):
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
+    
+    
+    
+
     
 
 
