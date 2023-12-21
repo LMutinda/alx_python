@@ -26,6 +26,7 @@ try:
 
     if 'id' in json_data:
         # Display the user ID
+        print(json_data)
         print(json_data['id'])
     else:
         # Display an error message if the response does not contain the user ID
