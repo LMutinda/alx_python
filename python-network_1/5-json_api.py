@@ -42,7 +42,7 @@ print (payload)
 
 response = requests.get(url, data = payload)
 
-if is_json(response):
+if is_json(response) is True:
     print(response.text)
 else:
     print("Not a valid JSON")
