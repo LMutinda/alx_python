@@ -41,7 +41,7 @@ payload = {'q': letter}
 
 response = requests.get(url, data = payload)
 
-if is_json(response):
+if is_json(response) is True:
     if not is_response_body_empty(response):
         print(response)
     else:
