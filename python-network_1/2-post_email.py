@@ -9,7 +9,8 @@ import sys
 
 url = sys.argv[1]
 email = sys.argv[2]
-myemail = {'Email': email}
 
-response = requests.post(url, json = myemail)
+payload = {'email': email}
+
+response = requests.post(url, data=payload)
 print(response.text)
