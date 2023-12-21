@@ -7,4 +7,9 @@ import sys
 url = sys.argv[1]
 response = requests.get(url)
 d = response.headers
-print(d["X-Request-Id"])
+try:
+    x = d.get("X-Request-Id")
+    print (x)
+except:
+    x = None
+    print(x)
