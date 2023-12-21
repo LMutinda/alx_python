@@ -25,7 +25,7 @@ else:
 payload = {'q': letter}
 print (payload)
 
-response = requests.get(url, data = payload)
+response = requests.post(url, data = payload)
 
 try:
     # Attempt to decode JSON using response.json()
