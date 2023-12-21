@@ -5,8 +5,10 @@ Take a user URL and an email address, send a POST request to the passed URL with
 import requests 
 import sys 
 
-url = sys.argv([1])
-email = sys.argv([2])
+
+
+url = sys.argv[1]
+email = sys.argv[2]
 
 response = requests.post(url,email)
 print(response.text)
