@@ -16,8 +16,11 @@ url = "https://docs.github.com/en/rest/users?apiVersion=2022-11-28"
 username = sys.argv[1]
 password = sys.argv [2]
 
-user = {username: password}
+auth = (username,password)
 
-response = requests.post(url, data = user )
-data = response.json()
-print(data["id"])
+response = requests.get(url, auth = auth )
+#data = response.text
+if response :
+    pass
+else :
+    print("None")
