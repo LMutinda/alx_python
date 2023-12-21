@@ -23,7 +23,7 @@ else:
     letter = ''
 
 payload = {'q': letter}
-print (payload)
+
 
 response = requests.post(url, data = payload)
 
