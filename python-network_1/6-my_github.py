@@ -19,4 +19,5 @@ password = sys.argv [2]
 user = {'username': username, 'password': password }
 
 response = requests.post(url, data = user )
-print (response)
+data = response.json()
+print(data["id"])
