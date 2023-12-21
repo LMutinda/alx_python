@@ -11,7 +11,7 @@ Write a Python script that takes your GitHub credentials (username and password)
 import requests 
 import sys 
 
-url = "https://docs.github.com/en/rest/users?apiVersion=2022-11-28"
+url = "https://api.github.com/user"
 
 username = sys.argv[1]
 password = sys.argv [2]
@@ -19,8 +19,17 @@ password = sys.argv [2]
 auth = (username,password)
 
 response = requests.get(url, auth = auth )
-#data = response.text
-if response :
-    pass
-else :
-    print("None")
+
+try:
+    # Attempt to decode JSON using response.json()
+    json_data = response.json()
+
+    if 'id' in json_data:
+        # Display the user ID
+        print("Your GitHub user ID is:", json_data['id'])
+    else:
+        # Display an error message if the response does not contain the user ID
+        print('None')
+except ValueError:
+    # Display an error message if decoding fails
+    print("Not a valid JSON. Response:", response.text)
