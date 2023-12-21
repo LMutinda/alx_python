@@ -13,21 +13,6 @@ Write a Python script that takes in a letter and sends a POST request to http://
 import requests 
 import sys
 
-def is_json(response):
-    """
-    Method for finding of the response is properly formatted json
-    """
-    try:
-        # Attempt to decode JSON using response.json()
-        _ = response.json()
-        return True
-    except ValueError:
-        # If decoding fails, it's not a valid JSON
-        return False
-    
-def is_response_body_empty(response):
-    """Check if the content length is 0"""
-    return len(response.content) == 0
 
 url = "http://0.0.0.0:5000/search_user"
 
@@ -43,8 +28,16 @@ print (payload)
 response = requests.get(url, data = payload)
 
 try:
-    x = response.json()
-    print(x)
-except:
-    print("Not a valid JSON")
+    # Attempt to decode JSON using response.json()
+    json_data = response.json()
+
+    if json_data:
+        # Display id and name if JSON is not empty
+        print("[{}] {}".format(json_data['id'], json_data['name']))
+    else:
+        # Display 'No result' if JSON is empty
+        print("No result")
+except ValueError:
+        # Display 'Not a valid JSON' if decoding fails
+        print("Not a valid JSON")
 
