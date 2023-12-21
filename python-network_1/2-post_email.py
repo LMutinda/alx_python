@@ -11,5 +11,5 @@ url = sys.argv[1]
 email = sys.argv[2]
 myemail = {'Email': email}
 
-response = requests.post(url,myemail)
+response = requests.post(url, json = myemail)
 print(response.text)
