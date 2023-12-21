@@ -26,7 +26,7 @@ try:
 
     if 'id' in json_data:
         # Display the user ID
-        print("Your GitHub user ID is:", json_data['id'])
+        print(json_data['id'])
     else:
         # Display an error message if the response does not contain the user ID
         print('None')
