@@ -35,18 +35,16 @@ if len(sys.argv)>=2:
     letter = sys.argv[1]
     
 else:
-    letter = {'q': ''}
+    letter = ''
 
 payload = {'q': letter}
+print (payload)
 
 response = requests.get(url, data = payload)
 
-if is_json(response) is True:
-    if not is_response_body_empty(response):
-        print(response)
-    else:
-        print("No result")
-
+if is_json(response):
+    print(response.text)
 else:
     print("Not a valid JSON")
+
 
