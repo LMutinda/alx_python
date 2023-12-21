@@ -15,3 +15,6 @@ response = requests.get(url)
 status = response.status_code
 if int(status) >= 400:
     print(" Error code: {}".format(status))
+
+else:
+    print("Regular request")
