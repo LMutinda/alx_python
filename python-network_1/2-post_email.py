@@ -9,6 +9,7 @@ import sys
 
 url = sys.argv[1]
 email = sys.argv[2]
+myemail = {'Email': email}
 
-response = requests.post(url,email)
+response = requests.post(url,myemail)
 print(response.text)
