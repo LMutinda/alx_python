@@ -16,7 +16,7 @@ url = "https://docs.github.com/en/rest/users?apiVersion=2022-11-28"
 username = sys.argv[1]
 password = sys.argv [2]
 
-user = {'username': username, 'password': password }
+user = {username: password}
 
 response = requests.post(url, data = user )
 data = response.json()
