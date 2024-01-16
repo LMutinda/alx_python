@@ -1,14 +1,14 @@
 import MySQLdb
 import sys
 
-def list_states(username, password, database):
+def list_cities(username, password, database):
     # Connect to MySQL server
-    connection = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
 
     # Create a cursor object
-    cursor = connection.cursor()
+    cursor = db.cursor()
 
-    # Execute the SQL query to retrieve states information
+    # Execute the SQL query to retrieve cities information
     query = "SELECT * FROM cities ORDER BY cities.id ASC"
     cursor.execute(query)
 
@@ -19,7 +19,7 @@ def list_states(username, password, database):
 
     # Close the cursor and connection
     cursor.close()
-    connection.close()
+    db.close()
 
 if __name__ == "__main__":
     # Check if correct number of command line arguments is provided
@@ -29,5 +29,5 @@ if __name__ == "__main__":
         # Get command line arguments
         username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
 
-        # Call the function to list states
-        list_states(username, password, database)
+        # Call the function to list cities
+        list_cities(username, password, database)
