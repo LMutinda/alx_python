@@ -9,7 +9,7 @@ def search_states(username, password, database, state_name):
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve states information based on user input
-    query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
+    query = "SELECT * FROM states WHERE BINARY name = %s ORDER BY states.id ASC"
     cursor.execute(query, (state_name,))
 
     # Fetch all the rows and display results
