@@ -9,7 +9,7 @@ def list_states(username, password, database):
     cursor = connection.cursor()
 
     # Execute the SQL query to retrieve states information
-    query = "SELECT * FROM states WHERE name LIKE 'N' ORDER BY states.id ASC"
+    query = "SELECT * FROM states WHERE name LIKE 'N%' and NOT LIKE'n%' ORDER BY states.id ASC"
     cursor.execute(query)
 
     # Fetch all the rows and display results
