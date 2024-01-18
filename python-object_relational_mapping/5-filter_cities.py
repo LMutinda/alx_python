@@ -17,7 +17,7 @@ def list_cities(username, password, database, state_name):
 
     # Execute the SQL query
     query = """
-        SELECT cities.id, cities.name, states.name
+        SELECT cities.name
         FROM cities
         JOIN states ON cities.state_id = states.id
         WHERE states.name = %s
