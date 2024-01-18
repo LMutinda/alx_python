@@ -15,7 +15,7 @@ class State(Base):
     name = Column(String(128), nullable=False)
 
 # Create a SQLite engine (you can replace this with your MySQL connection)
-engine = create_engine('sqlite:///:memory:', echo=True)
+#engine = create_engine('sqlite:///:memory:', echo=True)
 
 # Import the State class before calling create_all
 Base.metadata.create_all(engine)
