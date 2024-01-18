@@ -18,4 +18,4 @@ class State(Base):
 #engine = create_engine('sqlite:///:memory:', echo=True)
 
 # Import the State class before calling create_all
-Base.metadata.create_all(engine)
+#Base.metadata.create_all(engine)
