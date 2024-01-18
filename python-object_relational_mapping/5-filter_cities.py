@@ -1,14 +1,21 @@
-import MySQLdb
+#!/usr/bin/python3
 import sys
+import MySQLdb
 
-def select_cities(username, password, database, state_name):
+def list_cities(username, password, database, state_name):
     # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
     # Create a cursor object
     cursor = db.cursor()
 
-    # Use parameterized query to prevent MySQL injection
+    # Execute the SQL query
     query = """
         SELECT cities.id, cities.name, states.name
         FROM cities
@@ -17,9 +24,13 @@ def select_cities(username, password, database, state_name):
         ORDER BY cities.id ASC
     """
 
-    # Fetch all the rows and display results
-    rows = cursor.fetchall()
-    for row in rows:
+    cursor.execute(query, (state_name,))
+
+    # Fetch all the results
+    results = cursor.fetchall()
+
+    # Display the results
+    for row in results:
         print(row)
 
     # Close the cursor and connection
@@ -27,12 +38,12 @@ def select_cities(username, password, database, state_name):
     db.close()
 
 if __name__ == "__main__":
-    # Check if correct number of command line arguments is provided
+    # Check if all required arguments are provided
     if len(sys.argv) != 5:
-        print("Usage: python script.py <mysql_username> <mysql_password> <database_name> <state_name>")
-    else:
-        # Get command line arguments
-        username, password, database, state_name = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
+        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
+        sys.exit(1)
 
-        # Call the function to search for cities based on user input
-        select_cities(username, password, database, state_name)
+    username, password, database, state_name = sys.argv[1:]
+
+    # Call the function with provided arguments
+    list_cities(username, password, database, state_name)
