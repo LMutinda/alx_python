@@ -30,9 +30,9 @@ def list_cities(username, password, database, state_name):
     results = cursor.fetchall()
 
     # Display the results
-    for row in results:
-        print(", ".join(map(str, row)))
 
+    print(", ".join(str(row[0]) for row in results))
+    
     # Close the cursor and connection
     cursor.close()
     db.close()
