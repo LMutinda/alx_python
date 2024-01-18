@@ -31,7 +31,7 @@ def list_cities(username, password, database, state_name):
 
     # Display the results
     for row in results:
-        print(", ".join(map(str, row[0])))
+        print(", ".join(map(str, row)))
 
     # Close the cursor and connection
     cursor.close()
