@@ -1,6 +1,9 @@
-from flask import Flask
-#Create a flask app
 
+"""
+The flask module is a web framework
+"""
+from flask import Flask
+ 
 app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
