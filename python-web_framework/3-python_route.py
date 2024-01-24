@@ -41,7 +41,8 @@ def display_c(text):
     return f'C {text}'
 
 # Define a route for "/python/<text>" with the option strict_slashes=False
-@app.route('/python/<text>', strict_slashes=False)
+@app.route('/python/<text>/', strict_slashes=False)
+@app.route('/python/', strict_slashes=False)
 def display_python(text="is cool"):
     """Route handler for "/python/<text>".
 
@@ -51,10 +52,6 @@ def display_python(text="is cool"):
     Returns:
         str: Display "Python " followed by the value of the text variable.
     """
-    # Check if text is not provided
-    if text is None:
-        text = "is cool"
-
     # Replace underscores with spaces in the text variable
     text = text.replace('_', ' ')
     return f'Python {text}'
