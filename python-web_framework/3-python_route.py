@@ -42,7 +42,7 @@ def display_c(text):
 
 # Define a route for "/python/<text>" with the option strict_slashes=False
 @app.route('/python/<text>', strict_slashes=False)
-def display_python(text):
+def display_python(text="is cool"):
     """Route handler for "/python/<text>".
 
     Args:
