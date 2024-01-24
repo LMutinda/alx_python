@@ -1,4 +1,6 @@
-
+"""
+This is a module that utilizes the Flask web framework to create a webpage that displays Hello HBNB! Whatever that means.
+"""
 from flask import Flask
 
 # Create a Flask web application instance
