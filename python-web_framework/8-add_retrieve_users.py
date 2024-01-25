@@ -67,6 +67,13 @@ def add_user():
             flash(f"Error: {str(e)}", 'error')
     return render_template('add_user.html')
 
+# Route to retrieve all users and render the results using the users.html template
+@app.route('/users')
+def show_users():
+    # Retrieve all users from the User table
+    users = User.query.all()
+    
+    return render_template('users.html', users=users)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
