@@ -102,7 +102,7 @@ def display_number_odd_or_even(n):
     if isinstance(n, int):
         # Determine if n is even or odd
         odd_or_even = 'even' if n % 2 == 0 else 'odd'
-        return render_template('number_odd_or_even.html', number=n, odd_or_even=odd_or_even)
+        return render_template('6-number_odd_or_even.html', number=n, odd_or_even=odd_or_even)
     else:
         abort(404)  # Return a 404 error if n is not an integer
 

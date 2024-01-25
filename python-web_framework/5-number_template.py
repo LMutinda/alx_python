@@ -85,7 +85,7 @@ def display_number_template(n):
         str: Display an HTML page with H1 tag: "Number: n" inside the tag BODY.
     """
     if isinstance(n, int):
-        return render_template('number_template.html', number=n)
+        return render_template('5-number.html', number=n)
     else:
         abort(404)  # Return a 404 error if n is not an integer
 
