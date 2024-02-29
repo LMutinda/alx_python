@@ -22,8 +22,7 @@ def get_employee_todo_progress(employee_id):
 
     # Write data to CSV file
     with open(csv_filename, 'w', newline='') as csvfile:
-        csv_writer = csv.writer(csvfile)
-        
+        csv_writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         
         # Write each task to CSV
         for todo in todos:
