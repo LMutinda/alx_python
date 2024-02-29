@@ -25,9 +25,8 @@ def get_employee_todo_progress(employee_id):
     for todo in todos:
         count += 1
         if todo['completed']:
-            print(f"\tTask {count} Formatting: OK - {todo['title']}")
-        else:
-            print(f"\tTask {count} Formatting: Incorrect - {todo['title']}")
+            print(f"\t {todo['title']}")
+        
 
 
 if __name__ == "__main__":
