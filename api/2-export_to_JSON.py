@@ -1,6 +1,11 @@
+"""
+This module contains an api that exports to JSON
+"""
+
+import json
 import requests
 import sys
-import json
+
 
 def get_employee_todo_progress(employee_id):
     # Fetch employee details
