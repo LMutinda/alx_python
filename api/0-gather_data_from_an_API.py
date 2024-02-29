@@ -1,7 +1,7 @@
 import requests
 import sys
 
-def get_employee_info(employee_id):
+def get_employee_todo_progress(employee_id):
     # Fetch employee details
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     response = requests.get(employee_url)
@@ -18,7 +18,7 @@ def get_employee_info(employee_id):
     done_tasks = sum(1 for todo in todos if todo['completed'])
 
     # Print progress information
-    print(f"Employee {employee_name} is done with tasks ({done_tasks}/{total_tasks}):")
+    print(f"Employee {employee_name} is done with tasks({done_tasks}/{total_tasks}):")
     
     # Print titles of completed tasks
     for todo in todos:
@@ -31,4 +31,4 @@ if __name__ == "__main__":
         sys.exit(1)
     
     employee_id = int(sys.argv[1])
-    get_employee_info(employee_id)
+    get_employee_todo_progress(employee_id)
