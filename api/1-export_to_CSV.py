@@ -1,6 +1,8 @@
 import csv
+import os
 import requests
 import sys
+
 
 
 def get_employee_todo_progress(employee_id):
@@ -16,7 +18,7 @@ def get_employee_todo_progress(employee_id):
     todos = response.json()
 
     # Create CSV file name
-    csv_filename = f"{employee_id}.csv"
+    csv_filename = os.path.join(os.getcwd(), f"{employee_id}.csv")  # Specify full path for the CSV file
 
     # Write data to CSV file
     with open(csv_filename, 'w', newline='') as csvfile:
