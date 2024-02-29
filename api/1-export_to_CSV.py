@@ -2,6 +2,7 @@ import csv
 import requests
 import sys
 
+
 def get_employee_todo_progress(employee_id):
     # Fetch employee details
     employee_url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
@@ -20,13 +21,14 @@ def get_employee_todo_progress(employee_id):
     # Write data to CSV file
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-       
+        
         
         # Write each task to CSV
         for todo in todos:
             csv_writer.writerow([employee_id, employee_name, todo['completed'], todo['title']])
 
     print(f"Data exported to {csv_filename}")
+    return csv_filename
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -34,4 +36,5 @@ if __name__ == "__main__":
         sys.exit(1)
     
     employee_id = int(sys.argv[1])
-    get_employee_todo_progress(employee_id)
+    csv_filename = get_employee_todo_progress(employee_id)
+    print(csv_filename)  # Added to print the filename for verification in the testing script
