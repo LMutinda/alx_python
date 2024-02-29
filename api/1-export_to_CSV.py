@@ -29,7 +29,7 @@ def get_employee_todo_progress(employee_id):
         for todo in todos:
             csv_writer.writerow([employee_id, employee_name, todo['completed'], todo['title']])
 
-    print(f"Data exported to {csv_filename}")
+    
     return csv_filename
 
 if __name__ == "__main__":
@@ -39,4 +39,4 @@ if __name__ == "__main__":
     
     employee_id = int(sys.argv[1])
     csv_filename = get_employee_todo_progress(employee_id)
-    print(csv_filename)  # Added to print the filename for verification in the testing script
+    
