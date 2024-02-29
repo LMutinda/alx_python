@@ -21,9 +21,14 @@ def get_employee_todo_progress(employee_id):
     print(f"Employee {employee_name} is done with tasks({done_tasks}/{total_tasks}):")
     
     # Print titles of completed tasks
+    count = 0
     for todo in todos:
+        count += 1
         if todo['completed']:
-            print(f"\t{todo['title']}")
+            print(f"\tTask {count} Formatting: OK - {todo['title']}")
+        else:
+            print(f"\tTask {count} Formatting: Incorrect - {todo['title']}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
